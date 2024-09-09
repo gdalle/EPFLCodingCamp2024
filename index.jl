@@ -11,6 +11,8 @@ begin
 	using PlutoUI
 	using PythonCall
 	using Random
+
+    rng = Random.MersenneTwister(0)  # random number generator
 end
 
 # ╔═╡ 10babc1b-c1cf-4875-ba3c-270af9e54048
@@ -56,7 +58,7 @@ city.junctions[1]
 city.streets[1]
 
 # ╔═╡ 0fad818b-25c6-4474-89f8-75321a5e441f
-solution = random_walk(Random.seed!(0), city)
+solution = random_walk(rng, city)
 
 # ╔═╡ cb39d88c-665a-4861-a212-14885a627f5d
 is_feasible(solution, city; verbose=true)
